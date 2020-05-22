@@ -1,0 +1,55 @@
+{
+  "name": "WebRTC",
+  "version": "0.0.1",
+  "description": "An 'as simple as it gets' WebRTC example.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch": "webpack --watch",
+    "start": "webpack-dev-server --open",
+    "server": "node server.js",
+    "build": "webpack"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/EnricoSchw/WebRTC.git"
+  },
+  "keywords": [
+    "webrtc"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/EnricoSchw/WebRTC/issues"
+  },
+  "homepage": "https://github.com/EnricoSchw/WebRTC#readme",
+  "dependencies": {
+    "sdp-interop": "file:../sdp-interop",
+    "sdp-transform": "^2.14.0",
+    "ua-parser-js": "^0.7.21"
+  },
+  "devDependencies": {
+    "@babel/core": "7.5.5",
+    "@babel/plugin-proposal-class-properties": "7.1.0",
+    "@babel/plugin-proposal-export-default-from": "7.0.0",
+    "@babel/plugin-proposal-export-namespace-from": "7.0.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "7.4.4",
+    "@babel/plugin-proposal-optional-chaining": "7.2.0",
+    "@babel/plugin-transform-flow-strip-types": "7.0.0",
+    "@babel/preset-env": "7.1.0",
+    "@babel/preset-flow": "7.0.0",
+    "@babel/preset-react": "7.0.0",
+    "@babel/runtime": "7.5.5",
+    "babel-eslint": "10.0.1",
+    "babel-loader": "8.0.4",
+    "clean-webpack-plugin": "^3.0.0",
+    "copy-webpack-plugin": "^5.1.1",
+    "express": "^4.17.1",
+    "express-ws": "^4.0.0",
+    "html-webpack-plugin": "^4.3.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-middleware": "^3.7.2",
+    "webpack-dev-server": "^3.10.3",
+    "ws": "^7.2.5"
+  }
+}

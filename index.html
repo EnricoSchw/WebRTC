@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+
+</head>
+
+<body>
+<video id="localVideo" autoplay muted playsinline style="width:40%;"></video>
+<video id="remoteVideo" autoplay playsinline style="width:40%;"></video>
+
+<br/>
+
+<input type="button" id="start" onclick="start(true)" value="Start Video">
+<input type="button" id="stop" onclick="stop()" value="Stop Video">
+<script src="app.js"></script>
+<script type="text/javascript">
+    pageReady();
+</script>
+</body>
+</html>
