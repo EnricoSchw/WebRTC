@@ -1,21 +1,69 @@
 <!DOCTYPE html>
-<html lang="de">
-<head>
-    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+<!-- saved from url=(0033)https://webrtc.github.io/samples/ -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+    <meta name="description" content="WebRTC Javascript code samples">
+    <meta name="viewport" content="width=device-width, user-scalable=yes, initial-scale=1, maximum-scale=1">
+    <meta itemprop="description" content="Client-side WebRTC code samples">
+    <meta itemprop="image" content="src/images/webrtc-icon-192x192.png">
+    <meta itemprop="name" content="WebRTC code samples">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta id="theme-color" name="theme-color" content="#ffffff">
+
+    <!--<base target="_blank">--><base href="." target="_blank">
+
+    <title>WebRTC samples</title>
+
+    <link rel="icon" sizes="192x192" href="https://webrtc.github.io/samples/src/images/webrtc-icon-192x192.png">
+    <link href="css/app.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="css/main.css">
+
+    <style>
+        h2 {
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+
+        h3 {
+            border-top: none;
+        }
+
+        section {
+            border-bottom: 1px solid #eee;
+            margin: 0 0 1.5em 0;
+            padding: 0 0 1.5em 0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
-<video id="localVideo" autoplay muted playsinline style="width:40%;"></video>
-<video id="remoteVideo" autoplay playsinline style="width:40%;"></video>
+<div id="container">
 
-<br/>
+    <h1>WebRTC samples</h1>
 
-<input type="button" id="start" onclick="start(true)" value="Start Video">
-<input type="button" id="stop" onclick="stop()" value="Stop Video">
-<script src="app.js"></script>
-<script type="text/javascript">
-    pageReady();
-</script>
-</body>
-</html>
+    <section>
+
+        <p>
+            The code for all samples are available in the <a href="https://github.com/EnricoSchw/WebRTC">GitHub repository</a>.
+        </p>
+
+        <p class="warning"><strong>Warning:</strong> It is highly recommended to use headphones when testing these
+            samples, as it will otherwise risk loud audio feedback on your system.</p>
+    </section>
+
+    <section>
+
+        <h2 id="Connection"><a href="https://github.com/EnricoSchw/WebRTC">RTC Connection:</a>
+        </h2>
+        <p class="description">Basic connection</p>
+        <ul>
+            <li><a href="content/negotiation">Negotiation demo</a></li>
+        </ul>
+    </section>
+</div>

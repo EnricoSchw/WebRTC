@@ -1,6 +1,6 @@
 const path = require('path');
 const CopyPlugin = require('copy-webpack-plugin');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const {CleanWebpackPlugin} = require('clean-webpack-plugin');
 
 module.exports = {
     mode: 'development',
@@ -63,10 +63,17 @@ module.exports = {
         contentBase: './dist'
     },
     plugins: [
-        new CleanWebpackPlugin({ cleanStaleWebpackAssets: false }),
-        new CopyPlugin([{
-            from: './*.html'
-        }]),
+        new CleanWebpackPlugin({cleanStaleWebpackAssets: false}),
+        new CopyPlugin([
+            {from: './*.html'},
+            {
+                from: './src/content/**/*',
+                transformPath(targetPath, absolutePath) {
+                    return targetPath.replace(/src\//i, "");
+                }
+            },
+            {from: './src/css/*.css', to: 'css', flatten: true,},
+        ]),
     ],
     output: {
         filename: '[name].js',
