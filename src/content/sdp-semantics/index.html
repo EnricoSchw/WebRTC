@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
+    <link href="/css/app.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="/css/main.css">
+
+    <style>
+        h2 {
+            font-size: 1.5em;
+            font-weight: 500;
+        }
+
+        h3 {
+            border-top: none;
+        }
+
+        section {
+            border-bottom: 1px solid #eee;
+            margin: 0 0 1.5em 0;
+            padding: 0 0 1.5em 0;
+        }
+
+        section:last-child {
+            border-bottom: none;
+            margin: 0;
+            padding: 0;
+        }
+    </style>
+
+</head>
+
+<body>
+
+<div id="container">
+    <h1><a href="/index.html" title="WebRTC samples homepage">WebRTC samples</a>
+        <span>SDP semantics munge Unified Plan to PlanB</span>
+    </h1>
+
+    <p><a href="https://blog.mozilla.org/webrtc/perfect-negotiation-in-webrtc/" title="Perfect negotiation in WebRTC">SDP semantics munge Unified Plan to PlanB</a> </p>
+
+
+    <video id="localVideo" autoplay muted playsinline style="width:40%;"></video>
+    <video id="remoteVideo" autoplay playsinline style="width:40%;"></video>
+
+    <p>
+        <button id="start" onclick="start(true)" value="Start">Start</button>
+        <button type="button" id="stop" onclick="stop()" value="Stop">Stop</button>
+    </p>
+
+    <p>An example implementation with signaling server for perfect negotiation in WebRTC described in Article <a href="https://blog.mozilla.org/webrtc/perfect-negotiation-in-webrtc/" title="Perfect negotiation in WebRTC">Perfect negotiation in WebRTC</a> </p>
+
+    <div id="errorMsg"></div>
+
+    <p class="warning"><strong>Warning:</strong> if you're not using headphones, pressing play will cause feedback.</p>
+
+
+    <a href="https://github.com/EnricoSchw/WebRTC/tree/master/src/content/negotiation" title="View source for this page on GitHub" id="viewSource">View source on GitHub</a>
+</div>
+
+<script src="/app.js"></script>
+<script type="text/javascript">
+    pageReady();
+</script>
+</body>
+</html>
