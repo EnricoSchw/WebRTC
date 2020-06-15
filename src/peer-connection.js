@@ -1,4 +1,4 @@
-import {Interop} from 'sdp-interop';
+import {Interop} from '@jitsi/sdp-interop';
 import transform from 'sdp-transform';
 import SDPUtil from './util/SDPUtil'
 import {Browser} from './browser';
