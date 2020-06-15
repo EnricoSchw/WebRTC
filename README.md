@@ -3,7 +3,7 @@ WebRTC samples
 
 WebRTC samples.
 
-## Usage
+## Usage Local
 
 ```
 $ npm install
