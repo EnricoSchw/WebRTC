@@ -1,4 +1,4 @@
-WebRTC samples
+WebRTC samples with Signaling Server
 ==============
 
 WebRTC samples.
