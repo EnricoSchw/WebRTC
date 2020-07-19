@@ -1,7 +1,7 @@
 WebRTC samples with Signaling Server
 ==============
 
-WebRTC samples.
+WebRTC samples. (Some experiments)
 
 ## Usage Local
 
@@ -10,4 +10,4 @@ $ npm install
 $ npm run server
 ```
 
-Open in Browser: https://localhost:8080/
+Open in Chrome Browser: https://localhost:8080/
