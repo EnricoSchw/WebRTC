@@ -8,9 +8,9 @@ At the moment I doing some experiments with negotiation and SDP munging.
 
 ```
 $ npm install
-$ npm run server
+$ npm start
 ```
 
-Open in two Tabs in Chrome Browser: https://localhost:8080/
+Open in two Tabs in Chrome Browser: https://localhost:9443/
 
 

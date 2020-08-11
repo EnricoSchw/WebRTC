@@ -1,4 +1,5 @@
-import PeerConnection from './peer-connection';
+import { PeerConnection as DefaultPeerConnection }  from './peer-connection';
+import { PeerConnection as TurnPeerConnection }   from './example/turn/peer-connection';
 import { Browser } from './browser';
 
 const browser = new Browser();
@@ -7,19 +8,11 @@ let localVideo;
 let localStream;
 let remoteVideo;
 let peerConnection;
+let PeerConnection;
 let uuid;
 let serverConnection;
 
-const peerConnectionConfig = {
-    'iceServers': [
-        {'urls': 'stun:stun.stunprotocol.org:3478'},
-        {'urls': 'stun:stun.l.google.com:19302'},
-    ],
-    'bundlePolicy': 'max-bundle',
-    'sdpSemantics': 'plan-b'
-};
-
-window.pageReady = () => {
+window.pageReady = (modul) => {
     uuid = createUUID();
 
     localVideo = document.getElementById('localVideo');
@@ -38,6 +31,12 @@ window.pageReady = () => {
     } else {
         alert('Your browser does not support getUserMedia API');
     }
+
+    if(modul === 'turn') {
+        PeerConnection = TurnPeerConnection;
+    } else {
+        PeerConnection = DefaultPeerConnection;
+    }
 };
 window.start = (isCaller) => {
     peerConnection = new PeerConnection(
@@ -45,14 +44,10 @@ window.start = (isCaller) => {
         gotRemoteStream,
         errorHandler,
         uuid,
-        peerConnectionConfig,
         localStream,
         isCaller
     );
 
-    // if (isCaller) {
-    //     peerConnection.createOfferAnswer(true);
-    // }
 };
 
 window.stop = (isCaller) => {
