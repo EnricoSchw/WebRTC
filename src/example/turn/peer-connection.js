@@ -7,9 +7,10 @@ const preferH264 = true;
 const peerConnectionConfig = {
     'iceServers': [
         // Add your turnserver here!!
-        // {'urls': 'turns:..'},
+        // {'urls': 'turns:..'}
     ],
     'bundlePolicy': 'max-bundle',
+    'iceTransportPolicy': 'relay',
     'sdpSemantics': 'unified-plan'
 };
 
@@ -60,8 +61,11 @@ export class PeerConnection {
         const serverConnection = this.serverConnection;
         const uuid = this.uuid;
 
-        if (event.candidate != null) {
+        if (event.candidate != null && event.candidate.type === 'relay') {
+            console.log('Local ICE Candidate', event.candidate);
             serverConnection.send(JSON.stringify({'ice': event.candidate, 'uuid': uuid}));
+        } else {
+            return;
         }
     }
 
@@ -77,6 +81,7 @@ export class PeerConnection {
                 }
             }).catch(this.errorHandler);
         } else if (signal.ice) {
+            console.log('Remote ICE Candidate', signal.ice);
             self.peerConnection.addIceCandidate(new RTCIceCandidate(signal.ice)).catch(this.errorHandler);
         }
     }
