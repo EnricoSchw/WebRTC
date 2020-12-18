@@ -1,4 +1,5 @@
 import { PeerConnection as DefaultPeerConnection }  from './peer-connection';
+import { PeerConnection as NegotiationPeerConnection }   from './example/negotiation/peer-connection';
 import { PeerConnection as TurnPeerConnection }   from './example/turn/peer-connection';
 import { Browser } from './browser';
 
@@ -34,10 +35,13 @@ window.pageReady = (modul) => {
 
     if(modul === 'turn') {
         PeerConnection = TurnPeerConnection;
+    } else if (modul === 'negotiation') {
+        PeerConnection = NegotiationPeerConnection;
     } else {
         PeerConnection = DefaultPeerConnection;
     }
 };
+
 window.start = (isCaller) => {
     peerConnection = new PeerConnection(
         serverConnection,
@@ -70,9 +74,14 @@ function gotMessageFromServer(message) {
     peerConnection.gotSignal(signal);
 }
 
-function gotRemoteStream(event) {
-    console.log('got remote stream');
-    remoteVideo.srcObject = event.streams[0];
+function gotRemoteStream({track, streams}) {
+    // once media for a remote track arrives, show it in the remote video element
+    track.onunmute = () => {
+        console.log(streams, track)
+        // don't set srcObject again if it is already set.
+        if (remoteVideo.srcObject) return;
+        remoteVideo.srcObject = streams[0];
+    };
 }
 
 function errorHandler(error) {
